@@ -3,3 +3,4 @@ presets/
 # Raw run outputs (publish selected results manually).
 results/
 __pycache__/
+notes/
