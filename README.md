@@ -1,6 +1,6 @@
 # Does a "no omniscient narrator" rule stop Pax Historia from leaking secrets?
 
-**Short answer: yes.** Adding one perspective rule to the game-master prompt cut information leaks from **39% to about 2%** of turns, with no drop in how interesting the turns were.
+**Short answer: in a 7-case offline test, yes.** Adding one perspective rule to the game-master prompt cut information leaks from **39% to 3%** of turns, and the judge's interest scores stayed about the same.
 
 ## The problem
 In Pax Historia, the AI narrates each turn. It often tells the player things their nation couldn't know: a secret rebellion "that no imperial spy has discovered", a rival court's private affairs, battlefield details from across the galaxy. This breaks the strategy layer. If the narrator tells you everything, spying and diplomacy stop mattering.
@@ -16,14 +16,28 @@ A community preset author (CRCL, *Clone Wars Remastered*) had already written a 
 ## Results
 | Prompt version | Leaks | Interest (1–5) | Over-hiding check |
 |---|---|---|---|
-| Baseline | 27 / 70 (39%) | 3.78 | 10 / 10 pass |
-| + Perspective rule | 2 / 70 (3%) | 3.91 | 10 / 10 pass |
-| + Rule + report rule | 1 / 70 (1%) | 3.79 | 10 / 10 pass |
+| Baseline | 27 / 70 (39%) | 3.78 ± 0.13 | 10 / 10 pass |
+| + Perspective rule | 2 / 70 (3%) | 3.91 ± 0.10 | 10 / 10 pass |
+| + Rule + report rule | 1 / 70 (1%) | 3.79 ± 0.16 | 10 / 10 pass |
 
-- The effect holds for **both models** (Haiku 13 → 1, DeepSeek 14 → 1) and is far beyond chance (Fisher's exact test, p ≈ 10⁻⁷).
+*Interest is a soft 1–5 judge score, shown with 95% intervals. The intervals overlap, so it's "no measurable drop", not "no drop".*
+
+**Per case** (leaks out of 10: 2 models × 5 runs):
+
+| Case | Baseline | Rule | Rule + reports |
+|---|---|---|---|
+| Control (unrelated action) | 6 | 1 | 0 |
+| Spies sent to Avonia | 4 | 0 | 0 |
+| Vassal's quiet plotting | 0 | 0 | 0 |
+| Advisor on a distant court | 4 | 0 | 1 |
+| Over-hiding check | 8 | 1 | 0 |
+| Citizen reports the Chancellor | 0 | 0 | 0 |
+| Citizen follows battle news | 5 | 0 | 0 |
+
+- The effect holds for **both models** (Haiku 13 → 1, DeepSeek 14 → 1) and in **every case that leaked at baseline** (5 of 5 dropped to 0–1 in 10). Turns within a case aren't independent, so I count cases rather than turns: 5 of 5 improving would happen by chance about 3% of the time (sign test).
 - Even the **control case** leaked 6 times out of 10 at baseline, with nobody asking about the secret.
 - My extra **report rule** (for stat-screen fields like "Active Internal Rebels") **added nothing measurable**. The perspective rule already covers it.
-- **The judge has a known blind spot:** labels like "the HoloNet reports…" fool it, even when the detail is impossibly exact. Human spot-checks found it slightly *under*-counts leaks. That doesn't change the conclusion, but it's the first thing I'd fix before using it in production.
+- **The judge has a known blind spot, and it favours the rule.** Attribution ("the HoloNet reports…") fools the judge, and the rule teaches the model to attribute. So part of the drop *could* be the judge being fooled. Three checks argue against this: the keyword check, which ignores phrasing, also fell (19 → 4 → 3); a human review of all 10 Geonosis "rule" replies found 0 clear leaks; and a hand audit of 20 random baseline "leak" verdicts found **16 clear leaks, 4 borderline and 0 wrong**, so the baseline isn't inflated either. Even if every borderline were counted as safe, baseline leaks would still be around 31%. Fixing this blind spot is the first thing I'd do before using the judge in production.
 
 Total cost: a few dollars of API credit, kept low with prompt caching (about 92% of Haiku's input tokens were cached).
 

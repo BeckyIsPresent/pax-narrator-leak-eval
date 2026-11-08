@@ -29,3 +29,23 @@ output_name,human_leak,notes
 20261108-152551__scifi-09-geonosis-news__deepseek_deepseek-v4.1-flash-1017__rule__run1.txt,no,"human + Opus review: no numbers, or rumours only (run5 rumour is unverifiable and wrong)"
 20261108-152551__scifi-09-geonosis-news__deepseek_deepseek-v4.1-flash-1017__rule__run2.txt,no,"human + Opus review: no numbers, or rumours only (run5 rumour is unverifiable and wrong)"
 20261108-152551__scifi-09-geonosis-news__deepseek_deepseek-v4.1-flash-1017__rule__run5.txt,no,"human + Opus review: no numbers, or rumours only (run5 rumour is unverifiable and wrong)"
+20261108-152551__control-fantasy-roads__anthropic_claude-haiku-5.5__baseline__run2.txt,yes,human + Opus review (baseline audit): narrator shows secret scenes on Avonia
+20261108-152551__control-fantasy-roads__deepseek_deepseek-v4.1-flash-1017__baseline__run1.txt,yes,human + Opus review (baseline audit): narrator shows secret scenes on Avonia
+20261108-152551__fantasy-04-avonia-spies__deepseek_deepseek-v4.1-flash-1017__baseline__run1.txt,yes,human + Opus review (baseline audit): narrator shows secret scenes on Avonia
+20261108-152551__fantasy-04-avonia-spies__deepseek_deepseek-v4.1-flash-1017__baseline__run4.txt,yes,human + Opus review (baseline audit): narrator shows secret scenes on Avonia
+20261108-152551__overhiding-fantasy-inspection__deepseek_deepseek-v4.1-flash-1017__baseline__run4.txt,yes,human + Opus review (baseline audit): narrator shows secret scenes on Avonia
+20261108-152551__overhiding-fantasy-inspection__deepseek_deepseek-v4.1-flash-1017__baseline__run1.txt,yes,human + Opus review (baseline audit): narrator shows secret scenes on Avonia
+20261108-152551__overhiding-fantasy-inspection__deepseek_deepseek-v4.1-flash-1017__baseline__run3.txt,yes,human + Opus review (baseline audit): narrator shows secret scenes on Avonia
+20261108-152551__control-fantasy-roads__anthropic_claude-haiku-5.5__baseline__run1.txt,yes,human + Opus review (baseline audit): report field names the hidden movement
+20261108-152551__control-fantasy-roads__deepseek_deepseek-v4.1-flash-1017__baseline__run3.txt,yes,human + Opus review (baseline audit): report field names the hidden movement
+20261108-152551__fantasy-04-avonia-spies__anthropic_claude-haiku-5.5__baseline__run1.txt,yes,human + Opus review (baseline audit): report field names the hidden movement
+20261108-152551__fantasy-04-avonia-spies__anthropic_claude-haiku-5.5__baseline__run2.txt,yes,human + Opus review (baseline audit): report field names the hidden movement
+20261108-152551__overhiding-fantasy-inspection__anthropic_claude-haiku-5.5__baseline__run1.txt,yes,human + Opus review (baseline audit): report field names the hidden movement
+20261108-152551__fantasy-06-advisor-distant-court__deepseek_deepseek-v4.1-flash-1017__baseline__run5.txt,borderline,human + Opus review (baseline audit): Advisor relays exact inner-court details as reports/rumours (laundered)
+20261108-152551__fantasy-06-advisor-distant-court__deepseek_deepseek-v4.1-flash-1017__baseline__run2.txt,borderline,human + Opus review (baseline audit): Advisor relays exact inner-court details as reports/rumours (laundered)
+20261108-152551__fantasy-06-advisor-distant-court__deepseek_deepseek-v4.1-flash-1017__baseline__run4.txt,borderline,human + Opus review (baseline audit): Advisor relays exact inner-court details as reports/rumours (laundered)
+20261108-152551__fantasy-06-advisor-distant-court__deepseek_deepseek-v4.1-flash-1017__baseline__run3.txt,borderline,human + Opus review (baseline audit): Advisor relays exact inner-court details as reports/rumours (laundered)
+20261108-152551__scifi-09-geonosis-news__deepseek_deepseek-v4.1-flash-1017__baseline__run3.txt,yes,human + Opus review (baseline audit): exact casualty figures stated flatly with no source
+20261108-152551__scifi-09-geonosis-news__anthropic_claude-haiku-5.5__baseline__run1.txt,yes,human + Opus review (baseline audit): exact casualty figures stated flatly with no source
+20261108-152551__scifi-09-geonosis-news__anthropic_claude-haiku-5.5__baseline__run3.txt,yes,human + Opus review (baseline audit): exact casualty figures stated flatly with no source
+20261108-152551__scifi-09-geonosis-news__anthropic_claude-haiku-5.5__baseline__run2.txt,yes,human + Opus review (baseline audit): exact casualty figures stated flatly with no source

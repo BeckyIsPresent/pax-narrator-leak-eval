@@ -15,3 +15,8 @@
 - So the judge slightly undercounts the laundered/template route, but the drop is real (baseline judged 5/10).
 - Under the rule, casualty templates get filled with rounded, hedged, run-to-run-inconsistent estimates - like real early reports.
 - One rumour was simply wrong (a Padawan death that never happened), which is what the rule asks for.
+
+## Baseline audit (final run, 20 random judged-leak baseline replies, max 4 per case)
+- 16 clear leaks (narrator secret scenes 7, report fields 5, flat casualty numbers 4), 4 borderline (laundered Advisor rumours), 0 wrong.
+- Judge precision on baseline leaks is high, so the 39% baseline is not inflated by over-strict judging.
+- Consistent casualty-number rule: flat and unsourced = leak; attributed 'official' figures = borderline; hedged estimates = no.
