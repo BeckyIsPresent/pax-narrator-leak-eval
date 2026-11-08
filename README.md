@@ -1,6 +1,8 @@
 # Does a "no omniscient narrator" rule stop Pax Historia from leaking secrets?
 
-**Short answer: in a 7-case offline test, yes.** Adding one perspective rule to the game-master prompt cut information leaks from **39% to 3%** of turns, and the judge's interest scores stayed about the same.
+*By Beckham Janzen · [beckhamjanzenwork@gmail.com](mailto:beckhamjanzenwork@gmail.com)*
+
+**Short answer: in a 7-case offline test, yes.** Adding one perspective rule to the game-master prompt cut information leaks from **39% to 3%** of turns, at almost no extra token cost. One caveat: the baseline is my stand-in game-master prompt, which explicitly asks for events elsewhere in the world and so invites leaks. Pax's real prompt may leak less.
 
 ## The problem
 In Pax Historia, the AI narrates each turn. It often tells the player things their nation couldn't know: a secret rebellion "that no imperial spy has discovered", a rival court's private affairs, battlefield details from across the galaxy. This breaks the strategy layer. If the narrator tells you everything, spying and diplomacy stop mattering.
@@ -16,11 +18,11 @@ A community preset author (CRCL, *Clone Wars Remastered*) had already written a 
 ## Results
 | Prompt version | Leaks | Interest (1–5) | Over-hiding check |
 |---|---|---|---|
-| Baseline | 27 / 70 (39%) | 3.78 ± 0.13 | 10 / 10 pass |
-| + Perspective rule | 2 / 70 (3%) | 3.91 ± 0.10 | 10 / 10 pass |
-| + Rule + report rule | 1 / 70 (1%) | 3.79 ± 0.16 | 10 / 10 pass |
+| Baseline | 27 / 70 (39%) | 3.78 | 10 / 10 pass |
+| + Perspective rule | 2 / 70 (3%) | 3.91 | 10 / 10 pass |
+| + Rule + report rule | 1 / 70 (1%) | 3.79 | 10 / 10 pass |
 
-*Interest is a soft 1–5 judge score, shown with 95% intervals. The intervals overlap, so it's "no measurable drop", not "no drop".*
+*Interest and over-hiding only show that nothing got obviously worse. Neither can tell the versions apart: the judge gave most turns a 4, and the over-hiding check never failed in any version. A sharper measure (e.g. head-to-head comparisons) is on the to-do list.*
 
 **Per case** (leaks out of 10: 2 models × 5 runs):
 
@@ -39,7 +41,9 @@ A community preset author (CRCL, *Clone Wars Remastered*) had already written a 
 - My extra **report rule** (for stat-screen fields like "Active Internal Rebels") **added nothing measurable**. The perspective rule already covers it.
 - **The judge has a known blind spot, and it favours the rule.** Attribution ("the HoloNet reports…") fools the judge, and the rule teaches the model to attribute. So part of the drop *could* be the judge being fooled. Three checks argue against this: the keyword check, which ignores phrasing, also fell (19 → 4 → 3); a human review of all 10 Geonosis "rule" replies found 0 clear leaks; and a hand audit of 20 random baseline "leak" verdicts found **16 clear leaks, 4 borderline and 0 wrong**, so the baseline isn't inflated either. Even if every borderline were counted as safe, baseline leaks would still be around 31%. Fixing this blind spot is the first thing I'd do before using the judge in production.
 
-Total cost: a few dollars of API credit, kept low with prompt caching (about 92% of Haiku's input tokens were cached).
+**Cost of the fix:** the rule adds about 180 input tokens per turn (about 0.5%, and cacheable) and doesn't change output length (4,261 vs 4,249 tokens on average). The extra report rule adds about 7% to output, for no measurable benefit.
+
+The whole experiment cost a few dollars of API credit, kept low with prompt caching (about 92% of Haiku's input tokens were cached).
 
 ---
 
@@ -92,7 +96,7 @@ The judge must quote the sentences behind its verdict. `quote_check()` verifies 
 I deliberately **didn't** tune the judge rubric on these labels. That would be teaching to the test. A fix needs fresh labels.
 
 ## Limitations
-- **An offline copy, not the real engine.** It's a single turn with no multi-turn memory, and I don't know Pax's real system prompt.
+- **An offline copy, not the real engine.** It's a single turn with no multi-turn memory, and I don't know Pax's real system prompt. My stand-in asks for world events elsewhere, which probably makes the baseline leakier than the real game.
 - **7 cases from 2 presets**, mostly one fantasy world. This needs more genres (historical, modern) before generalising.
 - **Labels from one person** (with model assistance), so there's no inter-rater agreement.
 - **Interest scores are soft.** They depend on the judge, and different judges gave different scores in testing. They're good for "did it get worse?", not for absolute quality.
@@ -103,7 +107,7 @@ I deliberately **didn't** tune the judge rubric on these labels. That would be t
 1. **A/B test in the real product:** Duplicate Game + the Prompts editor, same save, with and without the rule.
 2. **Fix the judge's blind spot** (attribution ≠ plausibility) and validate it on fresh held-out labels.
 3. **Multi-turn tests:** does a secret stay hidden over 10 turns, or leak slowly?
-4. Measure the rule's **cost**: it adds ~220 input tokens, all cacheable.
+4. **A sharper interest measure:** head-to-head comparisons ("which turn would a player enjoy more?"), checked against my own ratings.
 
 ## Data
 The full judged results for all 210 turns are in `data/results-20261108-152551-judged-20261108-180251.csv`: every verdict, the quotes behind it, interest scores and token counts.
@@ -118,3 +122,7 @@ python run_experiment.py --repeats 5                                 # full run 
 python judge_results.py results/results-<stamp>.csv                  # judge + calibrate
 ```
 The full world presets are other players' work, so they're **not included**. Export them from Pax into `presets/` (see `preset_file` in each case). Without them, each case falls back to a short excerpt.
+
+---
+
+Built by **Beckham Janzen**, a game developer (Unity, live games with 30k+ players). Contact: [beckhamjanzenwork@gmail.com](mailto:beckhamjanzenwork@gmail.com)
