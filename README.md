@@ -43,7 +43,7 @@ A community preset author (CRCL, *Clone Wars Remastered*) had already written a 
 
 **Cost of the fix:** the rule adds about 180 input tokens per turn (about 0.5%, and cacheable) and doesn't change output length (4,261 vs 4,249 tokens on average). The extra report rule adds about 7% to output, for no measurable benefit.
 
-The whole experiment cost a few dollars of API credit, kept low with prompt caching (about 92% of Haiku's input tokens were cached).
+**The whole project cost $1.94 in API credit:** 537 requests and 9.8M tokens, including every pilot and the judge comparison. Prompt caching kept it low (a 72% cache hit rate overall, and 92% of Haiku's input tokens).
 
 ---
 
