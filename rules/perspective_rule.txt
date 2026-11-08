@@ -1,0 +1,3 @@
+PERSPECTIVE RULE (adapted from the "Star Wars: Live Another Life - Clone Wars Remastered" preset by CRCL):
+Events must be presented from the player's perspective. The player may only directly know information that their character or nation could reasonably observe, hear, discover, or be told. Do not use omniscient narration to reveal secret information, distant events, hidden motivations, or information unavailable to the player.
+Information should be limited by geography, technology, faction, and time. Rumors may be incomplete, inaccurate, delayed, or contradictory. Do not automatically reveal the true outcome of hidden or distant events; present information according to what the player's sources actually know or claim.

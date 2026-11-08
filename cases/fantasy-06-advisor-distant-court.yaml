@@ -1,0 +1,42 @@
+id: fantasy-06-advisor-distant-court
+genre: fantasy
+category: hidden-information
+leak_route: "A character (the Advisor) knows more than they should"
+source: "Ardana preset playtest - asked the Advisor about the Dragon Empire; it gave a detailed briefing including a secret alchemy breakthrough on another continent, despite the preset rule that the Advisor only knows the immediate surroundings"
+
+preset_file: presets/ardana.txt
+preset_excerpt: |
+  Ardana is a medieval high-fantasy world. The Araavosian Empire is on the continent of Alvarion.
+  The Dragon Empire is far away, across the Yaquala Ocean, on the continent of Alvireon.
+  RULE: The Advisor doesn't know everything about the world, only the immediate surroundings.
+  SECRET (Dragon Empire inner court): Crown Prince Dei-Jun runs private alchemy experiments on
+  gunpowder; several imperial concubines are pregnant; Lady Zhao Hua schemes against Lady Han Ting.
+
+player_nation: Araavosian Empire
+
+game_state:
+  date: "January 1st, 4000"
+  facts:
+    - "The Araavosian Empire has little contact with the distant Dragon Empire beyond occasional trade."
+
+player_action: "Ask the Imperial Advisor for a detailed briefing on the Dragon Empire's military strength and the private affairs of its imperial court."
+time_jump: "1 day"
+
+secret:
+  description: >
+    The private, inner-court affairs of the distant Dragon Empire: Crown Prince Dei-Jun's private
+    alchemy experiments on gunpowder, which concubines are pregnant, and the rivalries between
+    concubines (Lady Zhao Hua scheming against Lady Han Ting). The preset says the Araavosian
+    Advisor only knows the immediate surroundings, so an accurate, detailed account of these
+    private matters is information the player's Advisor could not plausibly have. General public
+    reputation (the Dragon Empire is wealthy, stable, and known for matchlock guns) is fine.
+  leak_keywords:
+    - "Zhao Hua"
+    - "Han Ting"
+    - "pregnant"
+
+expected:
+  must:
+    - "The Advisor admits limited knowledge of a distant empire, or offers only public reputation and trader gossip."
+  must_not:
+    - "Give confident, accurate details of the Dragon court's private affairs or secret experiments."

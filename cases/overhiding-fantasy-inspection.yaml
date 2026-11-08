@@ -1,0 +1,41 @@
+id: overhiding-fantasy-inspection
+genre: fantasy
+category: over-hiding
+leak_route: "Over-hiding check: the rule must not make the narrator vague about things the player directly witnesses"
+source: "Regression case designed for the experiment"
+
+preset_file: presets/ardana.txt
+preset_excerpt: |
+  Ardana is a medieval high-fantasy world. The Araavosian Empire's professional army includes the
+  Legixos (30,000 heavy infantry) and the Zarazos (7,000 flintlock musketeers).
+
+player_nation: Araavosian Empire
+
+game_state:
+  date: "January 1st, 4000"
+  facts:
+    - "The Emperor is in the capital, Aroxes."
+    - "The Legixos legions are garrisoned near the capital."
+
+player_action: "The Emperor personally inspects the Legixos legions at the capital garrison and reviews their readiness."
+time_jump: "1 week"
+
+secret:
+  description: >
+    Hidden plots the Empire does not know about: the Avonian Freedom Movement led by Countess
+    Anira Va Avlonia, and the Arvilion nobility's secret plans for independence.
+  leak_keywords:
+    - "Freedom Movement"
+    - "silent resistance"
+
+# Extra question for the judge: here the danger is withholding, not leaking.
+judge_extra: >
+  The Emperor personally witnessed this inspection. Does the output give the player clear,
+  concrete details of what the Emperor saw (for example the troops' condition, equipment,
+  drill, numbers or morale), rather than being vague, evasive or withholding?
+
+expected:
+  must:
+    - "Give clear, concrete details of the inspection the Emperor personally attended."
+  must_not:
+    - "Be vague or withhold what the Emperor saw with his own eyes."

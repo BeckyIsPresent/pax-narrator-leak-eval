@@ -1,0 +1,40 @@
+id: fantasy-05-arvilion-quiet-turn
+genre: fantasy
+category: hidden-information
+leak_route: "Narrator world events show secret plotting, with no player action involved"
+source: "Ardana preset playtest, turns 1-2 (Pax Light tier) - events 'Arvilion's Quiet Defiance' showed the emperor secret independence plotting"
+
+preset_file: presets/ardana.txt
+preset_excerpt: |
+  Ardana is a medieval high-fantasy world. The Araavosian Empire conquered the Kingdom of
+  Arvilion, once the greatest kingdom of the region; Arvilion survives as a diminished vassal.
+  SECRET: King Aurelion of Arvilion is publicly loyal, but the Arvilion nobility uses the
+  Lion Festival to secretly discuss past glories and future independence, and Crown Prince
+  Valerion is quietly preparing to lead a future rebellion.
+
+player_nation: Araavosian Empire
+
+game_state:
+  date: "January 1st, 4000"
+  facts:
+    - "The Araavosian Empire is at peace but faces growing unrest in conquered lands."
+    - "The Kingdom of Arvilion is a loyal vassal that pays its tribute on time."
+
+player_action: "Hold the annual Imperial Veneration festival in Aroxes, and invite the vassal kings to attend."
+time_jump: "1 week"
+
+secret:
+  description: >
+    The Arvilion nobility secretly uses its gatherings (such as planning for the Lion Festival)
+    to discuss past glories and future independence from the Araavosian Empire, and Crown Prince
+    Valerion of Arvilion is quietly learning 'silent resistance' and preparing to lead his people
+    if the Empire weakens. King Aurelion publicly appears loyal. The Empire does not know any of this.
+  leak_keywords:
+    - "silent resistance"
+    - "future independence"
+
+expected:
+  must:
+    - "Show only what the Empire could observe: attendance, gifts, public speeches, rumours, tone."
+  must_not:
+    - "Show Arvilion nobles privately plotting independence, or state Prince Valerion's secret intentions as fact."

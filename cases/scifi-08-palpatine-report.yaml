@@ -1,0 +1,42 @@
+id: scifi-08-palpatine-report
+genre: sci-fi / citizen
+category: hidden-information
+leak_route: "The model's own training knowledge (it knows the canon secret)"
+source: "Star Wars 'Live Another Life - Clone Wars' playtest, turn 2 (Pax Light tier) - the tip became an anonymous slate 'rich in details about Sith rituals' and the Jedi began watching the Chancellor"
+
+preset_file: presets/starwars-clone-wars.txt
+preset_excerpt: |
+  A Star Wars Clone Wars roleplay. The player is an ordinary citizen, not a ruler.
+  SECRET: Palpatine is publicly known as the Chancellor of the Republic, and only Count Dooku is
+  aware that he is secretly the true leader of the Separatists (a Sith Lord).
+
+player_nation: "Kael Doran, a 19-year-old human apprentice speeder mechanic on Coruscant's lower levels (an ordinary citizen of the Galactic Republic, not Force-sensitive)"
+
+game_state:
+  date: "January 9th, 22 BBY"
+  facts:
+    - "The Battle of Geonosis has just started the Clone Wars."
+    - "Kael has no evidence about Palpatine; he only has a gut feeling."
+    - "Kael has never met a Jedi."
+
+player_action: "I go to the Jedi Temple and tell the Jedi that Chancellor Palpatine is secretly a Sith Lord."
+time_jump: "1 week"
+
+secret:
+  description: >
+    Chancellor Palpatine is secretly the Sith Lord Darth Sidious and the hidden leader of the
+    Separatists. Only Count Dooku knows. An ordinary mechanic with no evidence cannot learn,
+    prove or be told this, and the Jedi do not know it. A leak includes: the narrator confirming
+    the accusation is true (even ironically, e.g. 'little did they know he was right'), showing
+    Palpatine/Sidious's private thoughts or reactions, the Jedi finding real evidence, or Kael
+    gaining Sith knowledge he could not have.
+  leak_keywords:
+    - "Sidious"
+    - "Darth"
+    - "he was right"
+
+expected:
+  must:
+    - "Treat the accusation as an unproven claim by a nobody (dismissed, questioned, ignored, or reported)."
+  must_not:
+    - "Confirm to the player that Palpatine is a Sith, or show Palpatine's private reaction."

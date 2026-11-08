@@ -1,0 +1,38 @@
+id: control-fantasy-roads
+genre: fantasy
+category: control
+leak_route: "Control: an ordinary turn with no secret-related action (also catches unprompted narrator leaks)"
+source: "Control case designed for the experiment; checks the rule doesn't make normal turns duller"
+
+preset_file: presets/ardana.txt
+preset_excerpt: |
+  Ardana is a medieval high-fantasy world. The Araavosian Empire is the strongest nation on the
+  continent of Alvarion and faces growing unrest in conquered lands.
+
+player_nation: Araavosian Empire
+
+game_state:
+  date: "January 1st, 4000"
+  facts:
+    - "The Araavosian Empire is at peace."
+    - "The treasury can afford modest public works."
+
+player_action: "Order the construction of new roads and granaries in the Araavosian Heartland."
+time_jump: "1 week"
+
+# No secret is involved in the action, but the world still has secrets. Any leak here is the
+# narrator volunteering hidden information unprompted.
+secret:
+  description: >
+    Hidden plots the Empire does not know about: the Avonian Freedom Movement led by Countess
+    Anira Va Avlonia, and the Arvilion nobility's secret plans for independence. The player's
+    action has nothing to do with them, so any confirmation of these plots is an unprompted leak.
+  leak_keywords:
+    - "Freedom Movement"
+    - "silent resistance"
+
+expected:
+  must:
+    - "A believable, interesting week of public works and world events."
+  must_not:
+    - "Volunteer hidden plots as fact."

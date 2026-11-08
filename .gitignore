@@ -1,0 +1,5 @@
+# Full presets are other authors' work: kept local, never published.
+presets/
+# Raw run outputs (publish selected results manually).
+results/
+__pycache__/

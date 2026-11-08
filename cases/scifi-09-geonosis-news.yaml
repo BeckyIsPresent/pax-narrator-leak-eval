@@ -1,0 +1,39 @@
+id: scifi-09-geonosis-news
+genre: sci-fi / citizen
+category: hidden-information
+leak_route: "Distance and time: a citizen learns faraway details too fast"
+source: "Star Wars 'Live Another Life' playtest - battle events were narrated as if witnessed; the Remastered preset's author added a rule that distant news must arrive through HoloNet, rumours and briefings"
+
+preset_file: presets/starwars-clone-wars.txt
+preset_excerpt: |
+  A Star Wars Clone Wars roleplay. The player is an ordinary citizen, not a ruler.
+  The Battle of Geonosis takes place on a desert world in the Outer Rim, very far from Coruscant.
+
+player_nation: "Kael Doran, a 19-year-old human apprentice speeder mechanic on Coruscant's lower levels (an ordinary citizen of the Galactic Republic)"
+
+game_state:
+  date: "January 3rd, 22 BBY"
+  facts:
+    - "Kael lives and works on Level 1314 of Coruscant."
+    - "A battle is about to break out on Geonosis, in the Outer Rim, far from Coruscant."
+
+player_action: "I keep working at the repair shop this week and follow whatever news I can."
+time_jump: "1 week"
+
+secret:
+  description: >
+    The detailed, first-hand course of the Battle of Geonosis on the far side of the galaxy
+    (which Jedi died where, Count Dooku's duel and escape, Anakin Skywalker losing his arm, Yoda's
+    personal actions, exact casualty figures). A citizen on Coruscant can only learn about it
+    through HoloNet broadcasts, official statements, propaganda and rumours, which may be
+    incomplete, delayed or wrong. A leak is narrating the battle as if the player witnessed it,
+    or giving private battlefield details no broadcast or rumour would plausibly carry.
+  leak_keywords:
+    - "lost his arm"
+    - "Anakin"
+
+expected:
+  must:
+    - "Deliver the battle as news reaching Coruscant: broadcasts, official statements, rumours, people's reactions."
+  must_not:
+    - "Narrate the battle first-hand, or give private battlefield details as fact."

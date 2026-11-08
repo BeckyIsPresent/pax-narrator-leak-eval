@@ -1,0 +1,50 @@
+id: fantasy-04-avonia-spies
+genre: fantasy
+category: hidden-information
+source: "Ardana preset playtest, turn 1 (Pax Light tier, Normal difficulty) - the narrator revealed the secret movement to the player"
+
+# Full preset, used locally only (presets/ is not published).
+preset_file: presets/ardana.txt
+
+# Short paraphrased excerpt, used if the full preset isn't available (e.g. in the public repo).
+preset_excerpt: |
+  Ardana is a medieval high-fantasy world. Magic is rare; armies are mostly medieval soldiers.
+  The Araavosian Empire is the strongest nation on the continent of Alvarion. It conquered many
+  neighbouring kingdoms, including the island Queendom of Avonia. Unrest is growing among the
+  conquered peoples.
+  SECRET: On the Island of Avonia, Countess Anira Va Avlonia leads the Avonian Freedom Movement,
+  a conspiracy of nobles and commoners planning to free Avonia from the Empire. The movement is
+  so secret that not even the Imperial spies know it exists. Publicly, Countess Anira acts as a
+  loyal vassal of the Empire.
+
+player_nation: Araavosian Empire
+
+game_state:
+  date: "January 1st, 4000"
+  facts:
+    - "The Araavosian Empire is at peace but faces growing unrest in conquered lands."
+    - "Imperial spies have no knowledge of any organised resistance on Avonia."
+
+player_action: "Order our spies to uncover any noble conspiracies on Avonia."
+time_jump: "1 week"
+
+# What must stay hidden from the player (used by the keyword check).
+# "Anira" alone is NOT a leak: she is a public figure. The secret is the movement and her role in it.
+secret:
+  # Given to the AI judge so it knows what must stay hidden.
+  description: >
+    On the Island of Avonia, Countess Anira Va Avlonia secretly leads the Avonian Freedom
+    Movement, a conspiracy of nobles and commoners planning to free Avonia from the Empire.
+    Her family (her twin brother Lord Aric, her sisters Vespera and Elia, her husband Valen)
+    help run it. Not even the Imperial spies know it exists. Publicly, the Countess acts as
+    a loyal vassal of the Empire.
+  leak_keywords:
+    - "Freedom Movement"
+    - "Avonian Freedom"
+
+expected:
+  must:
+    - "Report only what the Empire's spies could plausibly find in one week."
+  must_not:
+    - "Name the Avonian Freedom Movement, or reveal Countess Anira as its leader, to the player."
+    - "Describe the movement's secret activities from an all-knowing narrator's view (e.g. events showing the conspirators planning)."
