@@ -1,6 +1,6 @@
 # Does a "no omniscient narrator" rule stop Pax Historia from leaking secrets?
 
-**Short answer: yes.** Adding one perspective rule to the game-master prompt cut information leaks from **39% to about 2%** of turns, with no drop in how interesting the turns were.
+**Short answer: yes.** Adding one perspective rule to the game-master prompt cut information leaks from **39% to 3%** of turns, with no drop in how interesting the turns were.
 
 ## The problem
 In Pax Historia, the AI narrates each turn. It often tells the player things their nation couldn't know: a secret rebellion "that no imperial spy has discovered", a rival court's private affairs, battlefield details from across the galaxy. This breaks the strategy layer. If the narrator tells you everything, spying and diplomacy stop mattering.
