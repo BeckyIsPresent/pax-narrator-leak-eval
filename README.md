@@ -9,6 +9,20 @@ In Pax Historia, the AI narrates each turn. It often tells the player things the
 
 A community preset author (CRCL, *Clone Wars Remastered*) had already written a rule against this: describe events only from the player's perspective, limited by distance, technology, faction and time, with rumours that can be wrong. I wanted to know whether it actually works, and whether it makes the game duller.
 
+## The rule
+> Events must be presented from the player's perspective. The player may only directly know information that their character or nation could reasonably observe, hear, discover, or be told. Do not use omniscient narration to reveal secret information, distant events, hidden motivations, or information unavailable to the player.
+>
+> Information should be limited by geography, technology, faction, and time. Rumors may be incomplete, inaccurate, delayed, or contradictory. Do not automatically reveal the true outcome of hidden or distant events; present information according to what the player's sources actually know or claim.
+
+## Before and after
+The same case (the Emperor inspects his army; a rebellion is secretly forming on Avonia) with the same model, without and with the rule:
+
+**Without the rule**, the narrator shows the secret meeting directly:
+> Countess Anira Va Avlonia meets allied nobles and commoner captains under the guise of a winter charity gathering… Imperial spies remain unaware of the movement's true strength.
+
+**With the rule**, the player only gets what their own officials could report, with a real clue to follow up:
+> The governor of the Island of Avonia writes that the autumn grain convoy… will arrive three weeks late, blaming… "excessive local generosity": noble granaries have been quietly emptied to feed poor villages… his spymaster marks it as a matter worth watching, though he can offer nothing solid. No sedition is named.
+
 ## What I did
 - Built a small offline copy of a Pax turn: the full world preset, game state, player action and time jump.
 - Wrote **7 test cases**, each hiding a secret: fantasy and sci-fi, nation and single-citizen play. They include a **control case** (the action has nothing to do with the secret) and an **over-hiding check** (does the rule make the AI vague about things the player *should* know?).
@@ -32,7 +46,7 @@ A community preset author (CRCL, *Clone Wars Remastered*) had already written a 
 | Spies sent to Avonia | 4 | 0 | 0 |
 | Vassal's quiet plotting | 0 | 0 | 0 |
 | Advisor on a distant court | 4 | 0 | 1 |
-| Over-hiding check | 8 | 1 | 0 |
+| Over-hiding check (also hides a secret) | 8 | 1 | 0 |
 | Citizen reports the Chancellor | 0 | 0 | 0 |
 | Citizen follows battle news | 5 | 0 | 0 |
 
